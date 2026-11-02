@@ -1,1 +1,6 @@
-import type {Metadata} from 'next';import './globals.css';import Navigation from './navigation';export const metadata:Metadata={title:'MANASIK | Hajj & Umrah',description:'A unified pilgrimage marketplace for Ethiopia'};export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><div className="shell"><Navigation/></div>{children}</body></html>}
+import type {Metadata} from 'next';
+import './globals.css';
+import Navigation from './navigation';
+import SiteFooter from './site-footer';
+export const metadata:Metadata={title:'MANASIK | Hajj & Umrah',description:'A thoughtfully designed Hajj and Umrah marketplace connecting pilgrims with travel agencies and clearer journey information.'};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><Navigation/>{children}<SiteFooter/></body></html>}
