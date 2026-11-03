@@ -4,7 +4,7 @@ import Link from 'next/link';
 import {usePathname,useRouter} from 'next/navigation';
 import {House,Compass,Luggage,UserRound,LogOut,Building2,Bell} from 'lucide-react';
 import {getSupabaseClient} from '../../lib/supabase';
-const links=[{href:'/app/home',label:'Home',icon:House},{href:'/packages',label:'Explore',icon:Compass},{href:'/app/journeys',label:'Journeys',icon:Luggage},{href:'/app/notifications',label:'Inbox',icon:Bell},{href:'/app/profile',label:'Profile',icon:UserRound}];
+const links=[{href:'/app/home',label:'Home',icon:House},{href:'/app/explore',label:'Explore',icon:Compass},{href:'/app/journeys',label:'Journeys',icon:Luggage},{href:'/app/notifications',label:'Inbox',icon:Bell},{href:'/app/profile',label:'Profile',icon:UserRound}];
 export default function AppShell({children}:{children:React.ReactNode}){
  const [user,setUser]=useState<{id:string;email?:string}|null>(null);const [loading,setLoading]=useState(true);const [error,setError]=useState('');const pathname=usePathname();const router=useRouter();
  useEffect(()=>{let active=true;let unsubscribe:(()=>void)|undefined;try{const client=getSupabaseClient();client.auth.getUser().then(({data,error})=>{if(!active)return;if(error||!data.user){router.replace('/login?next='+encodeURIComponent(pathname));return}setUser({id:data.user.id,email:data.user.email});setLoading(false)}).catch(()=>{if(active){setError('Unable to verify your session.');setLoading(false)}});const {data}=client.auth.onAuthStateChange((event)=>{if(event==='SIGNED_OUT')router.replace('/login')});unsubscribe=()=>data.subscription.unsubscribe()}catch{setError('Authentication is temporarily unavailable.');setLoading(false)}return()=>{active=false;unsubscribe?.()}},[router,pathname]);
