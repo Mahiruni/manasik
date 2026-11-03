@@ -61,3 +61,18 @@ body:has(.almair-login){background:#f6f5ef}
 .almair-login-switch{border:0;background:none;padding:12px 0;font-size:13px;font-weight:700;color:#356248;cursor:pointer}
 .almair-login-status{font-size:13px;line-height:1.5;color:#566a5c}
 @media(max-width:480px){.almair-login{padding:19px 15px 36px}.almair-login-panel{border-radius:17px;padding:25px 22px}.almair-login-top span{font-size:9px}}
+
+
+/* Real-data journey and notification interfaces */
+.app-notification{display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid #edf0e9}
+.app-notification>svg{flex-shrink:0;color:#a98b58;margin-top:3px}
+.app-notification>div{flex:1;min-width:0}
+.app-notification strong{font-size:14px;color:#203c2b}
+.app-notification p{font-size:13px;color:#69796e;line-height:1.6;margin:6px 0}
+.app-notification small,.app-timeline small{font-size:11px;color:#8a988d}
+.app-notification button{border:1px solid #dfe7de;border-radius:11px;padding:8px;background:#f5f8f4;color:#28553c;cursor:pointer}
+.app-timeline{list-style:none;border-left:2px solid #d5e4d6;padding:0 0 0 24px;margin:25px 0 0}
+.app-timeline li{position:relative;display:grid;gap:5px;padding:0 0 26px;font-size:14px;text-transform:capitalize}
+.app-timeline li:before{content:'';position:absolute;left:-31px;top:3px;width:12px;height:12px;border-radius:50%;background:#b99a62;border:3px solid #fff;box-shadow:0 0 0 1px #d5e4d6}
+.app-page>main>.app-dashboard-panel{margin-top:17px}
+@media(max-width:800px){.app-bottom-wrapper .app-bottom-nav a{font-size:10px}.app-bottom-wrapper .app-bottom-nav{gap:0}.app-bottom-wrapper .app-bottom-nav a svg{width:19px;height:19px}}
